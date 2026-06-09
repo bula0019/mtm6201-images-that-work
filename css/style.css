@@ -159,9 +159,18 @@ a {
   align-items: flex-end;
 
   /* BROKEN: This should not be a background image */
-  background-image: url('../images/hero.png');
+  /* background-image: url('../images/hero.png'); (Task 3: Removed CSS background image and replaced with responsive img) */
   background-size: cover;
   background-position: center;
+}
+
+/* Task 3: Hero image fills the entire hero section */
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero::after {
@@ -398,21 +407,37 @@ a {
   justify-content: center;
 
   /* BROKEN: This should not be a background image */
-  background-image: url('../images/landscape-banner.png');
+  /* background-image: url('../images/landscape-banner.png'); (Task 7: Removed CSS background image and replaced with responsive img) */
   background-size: cover;
   background-position: center;
 }
 
+/* Task 7: Landscape Banner image fills the entire section */
+.landscape-banner picture,
+.landscape-banner picture img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.landscape-banner picture img {
+  object-fit: cover;
+}
+
+/* Task 7: Dark overlay for better text readability */
 .landscape-banner::before {
   content: '';
   position: absolute;
   inset: 0;
   background: rgba(20, 20, 18, 0.65);
+  z-index: 1;
 }
 
+/* Task 7: Keeps text above image and overlay */
 .landscape-banner__content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
   padding: 4rem 2rem;
   max-width: 700px;
